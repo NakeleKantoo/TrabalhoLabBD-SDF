@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pdtitulo.png">
+    <link rel="stylesheet" href="deve.css">
+    <title>Devedores-Padaria</title>
+</head>
+<body>
+    <ul>
+        <li><a href="telainicio.html">Inicio</a></li>
+        <li><a href="#news">Sobre</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=5531983471851">Suporte</a></li>
+        <li style="float:right"><a class="active" href="#" onclick="confirmarSaida()">Sair</a></li>
+    </ul>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Encontre devedores..." id="searchInput">
+        <button class="search-button" onclick="searchDevedores()">Buscar</button>
+    </div>
+    <div id="resultado"></div>
+    <br>
+    <section class="section">
+        <div class="container">
+            <div class="b-table">
+                <div class="table-wrapper has-mobile-cards">
+                    <table id="devedoresTable">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Profissão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão inseridos aqui dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function searchDevedores() {
+            var input = document.getElementById("searchInput").value;
+
+            // Enviar solicitação AJAX para o script PHP que consultará o banco de dados
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultado").innerHTML = this.responseText;
+                    updateTable(this.responseText);
+                }
+            };
+            xhttp.open("GET", "consultar_devedores.php?input=" + input, true);
+            xhttp.send();
+        }
+
+        function updateTable(response) {
+            var devedores = JSON.parse(response);
+            var tableBody = document.getElementById("devedoresTable").getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+
+            devedores.forEach(function(devedor) {
+                var row = tableBody.insertRow();
+                var nomeCell = row.insertCell(0);
+                var idadeCell = row.insertCell(1);
+                var profissaoCell = row.insertCell(2);
+
+                nomeCell.innerHTML = devedor.nome;
+                idadeCell.innerHTML = devedor.idade;
+                profissaoCell.innerHTML = devedor.profissao;
+            });
+        }
+    </script>
+</body>
+</html>
