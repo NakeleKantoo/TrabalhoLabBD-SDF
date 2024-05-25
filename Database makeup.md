@@ -9,9 +9,9 @@ Controle de vendas e estoque simples
 
 ### vendas
 
-| id                             | prodID         | quantidade |
-| ------------------------------ | -------------- | ---------- |
-| int PK auto_increment not null | int foreignkey | int        |
+| id                             | prodID         | quantidade | vendedorID   |
+| ------------------------------ | -------------- | ---------- | ------------ |
+| int PK auto_increment not null | int foreignkey | int        | int not null |
 
 ### produtos
 

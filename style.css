@@ -1,0 +1,14 @@
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.login {
+    flex-direction: column;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
