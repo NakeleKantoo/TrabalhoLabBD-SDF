@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+
+    <title>Livraria Peixoto</title>
+
+</head>
+
+<body>
+    <header>
+      <div class="header">
+        <img src="../Livraria peixoto.png" height="75px">
+        <h1>Livraria Peixoto</h1>
+        <button class="flat right font depressed">Livros</button>
+        <button class="flat font" onclick="reserva()">Reservas</button>
+        <button class="flat font" onclick="cliente()">Clientes</button>
+      </div>
+    </header>
+    <div class="prompt-overlay" id="updateOverlay"></div>
+    <main>
+
+        <div class="btnWrap">
+        <button id="cadastroMostrar" class="flat font" onclick="mostrar()">Cadastrar novo livro</button>
+        </div>
+        <section id="userFormSection">
+        <div class="form">
+            <div class="top header">
+            <h2 class="font h2">Cadastro de livros</h2>
+            <button class="right close" onclick="mostrar()">X</button>
+            </div>
+            <div class="inputDiv">
+                <label for="username">Nome do livro:</label>
+                <input type="text" id="livronome" name="username" required>
+            </div>
+            <div class="inputDiv">
+                <label for="email">Autor do livro:</label>
+                <input type="text" id="livroautor" name="email" required>
+            </div>
+            <div class="inputDiv">
+              <label for="email">Ano de publicação:</label>
+              <input type="text" id="livroano" name="year" required>
+            </div>
+            <div class="inputDiv">
+              <label for="email">Estoque:</label>
+              <input type="text" id="livroestoque" name="email" required>
+            </div>
+            <div class="btnWrap">
+                <button id="createUserBtn" class="flat smallfont">Cadastrar</button>
+            </div>
+            <div id="message"></div>
+        </div>
+        </section>        
+
+        <section id="userListSection">
+            <h2 style="text-align: center;" class="font">Livros</h2>
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Autor</th>
+                        <th>Ano</th>
+                        <th>Estoque</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="userList"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+    <div class="form update" id="updateForm">
+        <div class="top header">
+        <h2 class="font h2">Atualização do livro: </h2>
+        <button class="right close" onclick="fecharUpdate()">X</button>
+        </div>
+        <div class="inputDiv">
+            <label for="username">Nome do livro:</label>
+            <input type="text" id="ulivronome" name="username" required>
+        </div>
+        <div class="inputDiv">
+            <label for="email">Autor do livro:</label>
+            <input type="text" id="ulivroautor" name="email" required>
+        </div>
+        <div class="inputDiv">
+          <label for="email">Ano de publicação:</label>
+          <input type="text" id="ulivroano" name="year" required>
+        </div>
+        <div class="inputDiv">
+          <label for="email">Estoque:</label>
+          <input type="text" id="ulivroestoque" name="email" required>
+        </div>
+        <div class="btnWrap">
+            <button id="updateButton" class="updateRealBtn flat smallfont">Atualizar</button>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <div class="form update" id="loanForm">
+        <div class="top header">
+        <h2 class="font h2">Fazer uma reserva</h2>
+        <button class="right close" onclick="fecharLoan()">X</button>
+        </div>
+        <div class="inputDiv">
+            <label for="username">CPF do cliente:</label>
+            <input type="text" id="cpf" name="username" required>
+        </div>
+        <div class="inputDiv">
+            <label for="username">Duração da reserva em dias:</label>
+            <input type="text" id="duracao" name="username" required>
+        </div>
+        <div class="btnWrap">
+            <button id="loanButton" class="loanRealBtn flat smallfont">Reservar</button>
+        </div>
+        <div id="message"></div>
+    </div>
+</body>
+
+</html>

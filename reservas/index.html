@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+    <title>Livraria Peixoto</title>
+
+</head>
+
+<body>
+    <header>
+      <div class="header">
+            <img src="../Livraria peixoto.png" height="75px">
+            <h1>Livraria Peixoto</h1>
+            <button class="flat right font" onclick="cadastro()">Livros</button>
+            <button class="flat font depressed">Reservas</button>
+            <button class="flat font" onclick="cliente()">Clientes</button>
+      </div>
+    </header>
+
+    <main>
+        <section id="userListSection">
+            <h2 style="text-align: center;" class="font">Reservas</h2>
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CPF</th>
+                        <th>Duração em dias</th>
+                        <th>LivroID</th>
+                        <th>Nome do Livro</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="userList"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

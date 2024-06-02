@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
+
+    <title>Livraria Peixoto</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <img src="../Livraria peixoto.png" height="75px">
+            <h1>Livraria Peixoto</h1>
+            <button class="flat right font" onclick="cadastro()">Livros</button>
+            <button class="flat font" onclick="reserva()">Reservas</button>
+            <button class="flat font depressed">Clientes</button>
+          </div>
+    </header>
+    <div class="prompt-overlay" id="updateOverlay"></div>
+    <main>
+        <div class="btnWrap">
+            <button id="cadastroMostrar" class="flat font" onclick="mostrar()">Cadastrar novo cliente</button>
+        </div>
+            <section id="userFormSection">
+            <div class="form">
+                <div class="top header">
+                <h2 class="font h2">Cadastro de clientes</h2>
+                <button class="right close" onclick="mostrar()">X</button>
+                </div>
+                <div class="inputDiv">
+                    <label for="username">Nome:</label>
+                    <input type="text" id="clientenome" name="username" required>
+                </div>
+                <div class="inputDiv">
+                    <label for="email">Email:</label>
+                    <input type="text" id="clienteemail" name="email" required>
+                </div>
+                <div class="inputDiv">
+                  <label for="email">CPF (apenas números):</label>
+                  <input type="text" id="clientecpf" name="year" required>
+                </div>
+                <div class="inputDiv">
+                  <label for="email">Celular (apenas números):</label>
+                  <input type="text" id="clientecelular" name="email" required>
+                </div>
+                <div class="inputDiv">
+                    <label for="email">Endereço:</label>
+                    <input type="text" id="clienteendereco" name="email" required>
+                </div>
+                <div class="btnWrap">
+                    <button id="createUserBtn" class="flat smallfont">Cadastrar</button>
+                </div>
+            </div>
+            </section>
+
+        <section id="userListSection">
+            <h2 style="text-align: center;" class="font">Clientes</h2>
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Celular</th>
+                        <th>Endereço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="userList"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+
+    <div class="form update" id="updateForm">
+        <div class="top header">
+        <h2 class="font h2">Atualizar cliente</h2>
+        <button class="right close" onclick="fecharUpdate()">X</button>
+        </div>
+        <div class="inputDiv">
+            <label for="username">Nome:</label>
+            <input type="text" id="uclientenome" name="username" required>
+        </div>
+        <div class="inputDiv">
+            <label for="email">Email:</label>
+            <input type="text" id="uclienteemail" name="email" required>
+        </div>
+        <div class="inputDiv">
+          <label for="email">CPF (apenas números):</label>
+          <input type="text" id="uclientecpf" name="year" required>
+        </div>
+        <div class="inputDiv">
+          <label for="email">Celular (apenas números):</label>
+          <input type="text" id="uclientecelular" name="email" required>
+        </div>
+        <div class="inputDiv">
+            <label for="email">Endereço:</label>
+            <input type="text" id="uclienteendereco" name="email" required>
+        </div>
+        <div class="btnWrap">
+            <button id="updateButton" class="updateRealBtn flat smallfont">Atualizar</button>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
