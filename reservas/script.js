@@ -3,7 +3,7 @@ $(document).ready(function () {
     function listUsers() {
         $.ajax({
             type: 'GET',
-            url: 'http://localhost:5000/reserva',
+            url: 'https://leonnaviegas.dev.br:5000/reserva',
             success: function (users) {
                 $('#userList').empty();
                 users.forEach(function (user) {
@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Deletar um usuário
     $(document).on('click', '.deleteBtn', function () {
         var userId = $(this).data('id');
-        fetch(`http://localhost:5000/reserva/${userId}`, {
+        fetch(`https://leonnaviegas.dev.br:5000/reserva/${userId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json'
