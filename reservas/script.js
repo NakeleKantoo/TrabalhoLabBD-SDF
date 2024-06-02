@@ -56,7 +56,7 @@ $(document).ready(function () {
 function cadastro() {
   let url = window.location.href;
   url = url.split("/");
-  url[url.length-1]="cadastro"; //change to 1
+  url[url.length-2]="cadastro"; //change to 1
   url = url.join("/");
   window.location.href = url;
 }
@@ -64,7 +64,7 @@ function cadastro() {
 function cliente() {
   let url = window.location.href;
   url = url.split("/");
-  url[url.length-1]="cliente"; //change to 1
+  url[url.length-2]="cliente"; //change to 1
   url = url.join("/");
   window.location.href = url;
 }

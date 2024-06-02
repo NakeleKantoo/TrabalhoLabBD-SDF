@@ -129,7 +129,7 @@ $(document).ready(function () {
 function cadastro() {
   let url = window.location.href;
   url = url.split("/");
-  url[url.length-1]="cadastro"; //change to 1
+  url[url.length-2]="cadastro"; //change to 1
   url = url.join("/");
   window.location.href = url;
 }
@@ -137,7 +137,7 @@ function cadastro() {
 function reserva() {
   let url = window.location.href;
   url = url.split("/");
-  url[url.length-1]="reservas"; //change to 1
+  url[url.length-2]="reservas"; //change to 1
   url = url.join("/");
   window.location.href = url;
 }
