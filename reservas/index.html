@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
@@ -15,6 +17,7 @@
 </head>
 
 <body>
+    <div class="prompt-overlay" id="popupOverlay"></div>
     <header>
       <div class="header">
             <img src="../Livraria peixoto.png" height="75px">
@@ -43,6 +46,28 @@
             </table>
         </section>
     </main>
+
+    <div class="popup form" id="popup">
+        <div class="header">
+            <h2 class="font" style="padding: 0px;padding-left: 15px;">Informações da reserva</h2>
+            <button class="right close" style="margin-top: 10px;margin-right: 10px;">X</button>
+        </div>
+        <table id="popupTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Cliente</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Endereço</th>
+                    <th>Duração em dias</th>
+                    <th>Nome do livro</th>
+                </tr>
+            </thead>
+            <tbody id="popupList"></tbody>
+        </table>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>

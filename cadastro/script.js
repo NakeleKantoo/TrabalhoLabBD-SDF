@@ -3,7 +3,7 @@ $(document).ready(function () {
     function listUsers() {
         $.ajax({
             type: 'GET',
-            url: 'https://leonnaviegas.dev.br:5000/livro',
+            url: 'http://localhost:5000/livro',
             success: function (users) {
                 $('#userList').empty();
                 users.forEach(function (user) {
@@ -34,7 +34,7 @@ $(document).ready(function () {
         var livroautor = $('#livroautor').val();
         var livroano = $('#livroano').val();
         var livroestoque = $('#livroestoque').val();
-        fetch('https://leonnaviegas.dev.br:5000/livro', {
+        fetch('http://localhost:5000/livro', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ $(document).ready(function () {
     // Deletar um usuário
     $(document).on('click', '.deleteBtn', function () {
         var userId = $(this).data('id');
-        fetch(`https://leonnaviegas.dev.br:5000/livro/${userId}`, {
+        fetch(`http://localhost:5000/livro/${userId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ $(document).ready(function () {
       var userId = $(this).data('id');
       var cpf = $('#cpf').val();
       var duracao = $('#duracao').val();
-      fetch(`https://leonnaviegas.dev.br:5000/reserva/`, {
+      fetch(`http://localhost:5000/reserva/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ $(document).ready(function () {
     var livroautor = $('#ulivroautor').val();
     var livroano = $('#ulivroano').val();
     var livroestoque = $('#ulivroestoque').val();
-    fetch(`https://leonnaviegas.dev.br:5000/livro/${userId}`, {
+    fetch(`http://localhost:5000/livro/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

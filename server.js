@@ -2,10 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pool = require('./db');
-
+console.log("here");
 const app = express();
 app.use(bodyParser.json());
-
+console.log("here 2");
 const PORT = process.env.PORT || 5000;
 
 // Middleware to handle CORS
@@ -15,7 +15,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
   });
-
+console.log("here 3");
 
 // Create
 app.post('/livro', async (req, res) => {
@@ -98,6 +98,18 @@ app.get('/reserva', async (req, res) => {
   try {
     const conn = await pool.getConnection();
     const rows = await conn.query("SELECT reservas.id,cpf,duracao,livroid,nome FROM reservas,livros WHERE livros.id=reservas.livroid");
+    conn.release();
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/reserva/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const conn = await pool.getConnection();
+    const rows = await conn.query(`SELECT reservas.id,clientes.cpf,clientes.nome,clientes.email,clientes.celular,clientes.endereco,duracao,livroid,livros.nome as livronome FROM reservas,livros,clientes WHERE livros.id=reservas.livroid AND reservas.id=${id} AND clientes.cpf=reservas.cpf`);
     conn.release();
     res.json(rows);
   } catch (err) {

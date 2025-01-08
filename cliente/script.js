@@ -3,7 +3,7 @@ $(document).ready(function () {
     function listUsers() {
         $.ajax({
             type: 'GET',
-            url: 'https://leonnaviegas.dev.br:5000/cliente',
+            url: 'http://localhost:5000/cliente',
             success: function (users) {
                 $('#userList').empty();
                 users.forEach(function (user) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
         var clientecpf = $('#clientecpf').val();
         var clientecelular = $('#clientecelular').val();
         var clienteendereco = $('#clienteendereco').val();
-        fetch('https://leonnaviegas.dev.br:5000/cliente', {
+        fetch('http://localhost:5000/cliente', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ $(document).ready(function () {
     // Deletar um usuário
     $(document).on('click', '.deleteBtn', function () {
         var userId = $(this).data('id');
-        fetch(`https://leonnaviegas.dev.br:5000/cliente/${userId}`, {
+        fetch(`http://localhost:5000/cliente/${userId}`, {
             method: 'DELETE',
             headers: {
               'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ $(document).ready(function () {
       var clientecpf = $('#uclientecpf').val();
       var clientecelular = $('#uclientecelular').val();
       var clienteendereco = $('#uclienteendereco').val();
-      fetch(`https://leonnaviegas.dev.br:5000/cliente/${userId}`, {
+      fetch(`http://localhost:5000/cliente/${userId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
